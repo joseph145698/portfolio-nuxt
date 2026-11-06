@@ -526,10 +526,8 @@ section {
     cursor: pointer;
 
     --translateY: 35px;
-    --scale: 1;
-
     opacity: 0;
-    transform: translateY(var(--translateY)) scale(var(--scale));
+    transform: translateY(var(--translateY)) scale(1);
 
     transition:
         transform 0.9s cubic-bezier(0.22, 1, 0.36, 1),
@@ -538,10 +536,11 @@ section {
         box-shadow 0.25s ease;
 }
 
-.cert-card img:hover,
-.certifications-images img:hover {
-    --scale: 1.08;
+.certifications.animation-done .cert-image-button:hover img,
+.certifications.animation-done .cert-image-button:focus-visible img {
+    transform: translateY(0) scale(1.05);
     filter: brightness(1.2);
+    box-shadow: 0 0 24px rgba(255, 255, 255, 0.35);
 }
 
 .cert-card figcaption {
@@ -594,15 +593,8 @@ section {
 .certifications.show:not(.animation-done) .cert-card:nth-child(5) figcaption { transition-delay: 0.9s; }
 .certifications.show:not(.animation-done) .cert-card:nth-child(6) figcaption { transition-delay: 1.05s; }
 
-.certifications:not(.animation-done) .cert-card img,
-.certifications:not(.animation-done) .certifications-images img {
+.certifications:not(.animation-done) .cert-image-button {
     pointer-events: none;
-}
-
-.certifications:not(.animation-done) .cert-card img:hover,
-.certifications:not(.animation-done) .certifications-images img:hover {
-    --scale: 1;
-    filter: none;
 }
 
 .certifications.animation-done .cert-card img,

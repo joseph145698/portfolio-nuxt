@@ -10,14 +10,21 @@
 
 <script setup>
 const visible = ref(false)
+const loaderDoneKey = 'helloLoaderDone'
 
 let hideTimer
 
 onMounted(() => {
-  localStorage.setItem('helloLoaderDone', '0')
+  try {
+    if (localStorage.getItem(loaderDoneKey) === 'true') return
+
+    localStorage.setItem(loaderDoneKey, 'true')
+  } catch (error) {
+    console.warn('Unable to access local storage for the intro animation:', error)
+  }
+
   visible.value = true
 
-  // Wait for the typing animation to finish, then start fading out.
   hideTimer = window.setTimeout(() => {
     visible.value = false
   }, 2500)

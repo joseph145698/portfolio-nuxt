@@ -5,6 +5,7 @@ export interface LightboxProject {
   alt: string
   title: string
   description: string
+  verificationUrl?: string
 }
 
 export function useImageLightbox() {

@@ -5,7 +5,7 @@
     :aria-hidden="!isOpen && !isClosing"
     role="dialog"
     aria-modal="true"
-    aria-label="Project image preview"
+    :aria-label="project?.verificationUrl ? 'Certificate image preview' : 'Project image preview'"
     @click.self="handleBackdropClick"
   >
     <div class="lightbox-content">
@@ -17,6 +17,15 @@
       <p v-if="project?.description" class="lightbox-description">
         {{ project.description }}
       </p>
+      <a
+        v-if="project?.verificationUrl"
+        class="certificate-button"
+        :href="project.verificationUrl"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Verify Certification
+      </a>
     </div>
   </div>
 </template>
