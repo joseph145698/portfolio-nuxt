@@ -3,7 +3,7 @@
     <BackgroundEffects />
     <Navbar />
 
-    <section class="about page-section">
+    <section class="about page-section" :class="{ show: pageVisible }">
       <div class="about-container">
         <div class="about-text">
           <h1>About</h1>
@@ -68,6 +68,8 @@
 
 <script setup lang="ts">
 import { useImageLightbox, type LightboxProject } from '~/composables/useImageLightbox'
+
+const pageVisible = usePageReveal()
 
 const projects: LightboxProject[] = [
   {

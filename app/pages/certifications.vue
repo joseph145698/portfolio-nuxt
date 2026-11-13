@@ -59,6 +59,8 @@
 import { onBeforeUnmount, onMounted, ref } from 'vue'
 import { useImageLightbox, type LightboxProject } from '~/composables/useImageLightbox'
 
+const pageVisible = usePageReveal()
+
 const certifications: LightboxProject[] = [
   {
     src: '/images/certifications/joseph-rey-paterno-python-essentials-1-certificate.jpg',
@@ -113,13 +115,9 @@ const {
 } = useImageLightbox()
 
 const animationDone = ref(false)
-const pageVisible = ref(false)
 let animationTimer: ReturnType<typeof setTimeout> | undefined
 
-onMounted(async () => {
-  await nextTick()
-  pageVisible.value = true
-
+onMounted(() => {
   animationTimer = setTimeout(() => {
     animationDone.value = true
   }, 2000)

@@ -4,8 +4,6 @@
 </template>
 
 <script setup>
-const route = useRoute()
-
 useHead({
   link: [
     {
@@ -28,21 +26,4 @@ useHead({
   ]
 })
 
-const revealPage = async () => {
-  await nextTick()
-
-  const pageSection = document.querySelector('.page-section')
-
-  if (pageSection) {
-    pageSection.classList.add('show')
-  }
-}
-
-onMounted(() => {
-  revealPage()
-})
-
-watch(() => route.path, () => {
-  revealPage()
-})
 </script>

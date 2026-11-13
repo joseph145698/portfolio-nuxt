@@ -1,5 +1,5 @@
 <template>
-  <section class="home page-section">
+  <section class="home page-section" :class="{ show: pageVisible }">
     <div class="home-container home-centered">
 
       <!-- Profile Image -->
@@ -51,3 +51,7 @@
     </div>
   </section>
 </template>
+
+<script setup>
+const pageVisible = usePageReveal()
+</script>
