@@ -1,6 +1,9 @@
 <template>
-  <PageLoader />
-  <NuxtPage />
+  <div class="app-shell">
+    <PageLoader />
+    <BackgroundEffects />
+    <NuxtPage />
+  </div>
 </template>
 
 <script setup>

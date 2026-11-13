@@ -1,6 +1,5 @@
 <template>
   <main>
-    <BackgroundEffects />
     <Navbar />
 
     <section

@@ -19,7 +19,7 @@ export function useExternalLinks() {
       confirmButtonText: 'Go to Link',
       cancelButtonText: 'Stay',
       showCancelButton: true,
-      confirmButtonColor: '#ffffff',
+      confirmButtonColor: '#555555',
       cancelButtonColor: '#555555',
       customClass: {
         popup: 'custom-swal-popup',

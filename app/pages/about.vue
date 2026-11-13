@@ -1,6 +1,5 @@
 <template>
   <main>
-    <BackgroundEffects />
     <Navbar />
 
     <section class="about page-section" :class="{ show: pageVisible }">
