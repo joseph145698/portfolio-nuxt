@@ -13,7 +13,7 @@
       <h1>{{ title }}</h1>
       <p class="error-description">{{ description }}</p>
 
-      <button class="home-button" type="button" @click="clearError({ redirect: '/' })">
+      <button class="home-button" margin-top=2.8rem type="button" @click="clearError({ redirect: '/' })">
         Return to homepage
       </button>
     </section>
@@ -32,11 +32,11 @@ const props = defineProps<ErrorPageProps>()
 const statusCode = computed(() => props.error.statusCode ?? 404)
 const title = computed(() => statusCode.value === 404 ? 'Page not found' : 'Something went wrong')
 const description = computed(() => statusCode.value === 404
-  ? "The page you're looking for doesn't exist or may have moved."
+  ? ""
   : 'An unexpected error occurred. Please return to the homepage and try again.')
 
 useHead({
-  title: 'Page Not Found | Joseph Rey Paterno'
+  title: '404 Page Not Found'
 })
 
 useSeoMeta({
@@ -56,6 +56,7 @@ useSeoMeta({
 .error-card {
   display: flex;
   width: min(100%, 56rem);
+  min-height: 0;
   flex-direction: column;
   align-items: center;
   padding: clamp(3rem, 8vw, 6rem);
@@ -97,7 +98,7 @@ useSeoMeta({
 }
 
 .home-button {
-  margin-top: 2.8rem;
+  margin-top: 3.8rem;
   padding: 1.2rem 2.2rem;
   border: 1px solid rgba(255, 255, 255, 0.5);
   border-radius: 0.8rem;
@@ -127,33 +128,35 @@ useSeoMeta({
 
 @media (max-height: 600px) {
   .error-page {
-    padding-block: 1.5rem;
+    padding-block: 0.8rem;
   }
 
   .error-card {
-    padding: 2rem;
+    padding: 1.2rem;
   }
 
   .error-icon {
-    width: 7rem;
-    height: 7rem;
+    width: 5.5rem;
+    height: 5.5rem;
     margin-bottom: 0;
   }
 
   .error-code {
-    font-size: 5rem;
+    font-size: 4.4rem;
   }
 
   .error-card h1 {
-    margin-top: 1rem;
+    margin-top: 0.6rem;
   }
 
   .error-description {
-    margin-top: 0.8rem;
+    margin-top: 0.5rem;
+    font-size: 1.4rem;
+    line-height: 1.4;
   }
 
   .home-button {
-    margin-top: 1.8rem;
+    margin-top: 3.8rem;
   }
 }
 </style>
