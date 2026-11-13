@@ -32,6 +32,7 @@
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn"
+            @click="handleExternalLink"
           >
             <i class="fa-brands fa-linkedin"></i>
           </a>
@@ -42,6 +43,7 @@
             target="_blank"
             rel="noopener noreferrer"
             aria-label="GitHub"
+            @click="handleExternalLink"
           >
             <i class="fa-brands fa-github"></i>
           </a>
@@ -54,4 +56,5 @@
 
 <script setup>
 const pageVisible = usePageReveal()
+const { handleExternalLink } = useExternalLinks()
 </script>
