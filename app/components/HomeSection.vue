@@ -20,34 +20,6 @@
           Aspiring web developer who is passionate about developing
           my skills and making my dreams come true, one step at a time.
         </p>
-
-        <div class="contact-label">
-          <p>Contact me here:</p>
-        </div>
-
-        <div class="social-icons">
-          <a
-            href="https://www.linkedin.com/in/joseph-rey-paterno-4258113b8/"
-            class="external-link"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="LinkedIn"
-            @click="handleExternalLink"
-          >
-            <i class="fa-brands fa-linkedin"></i>
-          </a>
-
-          <a
-            href="https://github.com/joseph145698"
-            class="external-link"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="GitHub"
-            @click="handleExternalLink"
-          >
-            <i class="fa-brands fa-github"></i>
-          </a>
-        </div>
       </div>
 
     </div>
@@ -55,6 +27,8 @@
 </template>
 
 <script setup>
+import { Github, Linkedin } from 'lucide-vue-next'
+
 const pageVisible = usePageReveal()
 const { handleExternalLink } = useExternalLinks()
 </script>

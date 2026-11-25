@@ -29,21 +29,26 @@
 </template>
 
 <script setup lang="ts">
+import {
+  Braces,
+  CodeXml,
+  Coffee,
+  Github,
+  GitBranch,
+  Paintbrush,
+  PanelsTopLeft,
+  Terminal
+} from 'lucide-vue-next'
+import type { TechnologyCardItem } from '~/types/technology'
+
 const pageVisible = usePageReveal()
 
-interface TechnologyCardItem {
-  name: string
-  icon?: string
-  image?: string
-  alt?: string
-}
-
 const technologies: TechnologyCardItem[] = [
-  { name: 'HTML', icon: 'fa-brands fa-html5' },
-  { name: 'CSS', icon: 'fa-brands fa-css3-alt' },
-  { name: 'JavaScript', icon: 'fa-brands fa-js' },
-  { name: 'Java', icon: 'fa-brands fa-java' },
-  { name: 'Python', icon: 'fa-brands fa-python' },
+  { name: 'HTML', icon: CodeXml },
+  { name: 'CSS', icon: Paintbrush },
+  { name: 'JavaScript', icon: Braces },
+  { name: 'Java', icon: Coffee },
+  { name: 'Python', icon: Terminal },
   {
     name: 'PostgreSQL',
     image: '/images/tech/postgresql.svg',
@@ -64,9 +69,9 @@ const technologies: TechnologyCardItem[] = [
     image: '/images/tech/ssms.svg',
     alt: 'SQL Server Management Studio logo'
   },
-  { name: 'VS Code', icon: 'bx bxl-visual-studio' },
-  { name: 'Git', icon: 'fa-brands fa-git-alt' },
-  { name: 'GitHub', icon: 'fa-brands fa-github' }
+  { name: 'VS Code', icon: PanelsTopLeft },
+  { name: 'Git', icon: GitBranch },
+  { name: 'GitHub', icon: Github }
 ]
 
 useHead({

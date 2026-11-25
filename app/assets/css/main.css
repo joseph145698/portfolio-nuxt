@@ -8,6 +8,17 @@
     --main-color: #333333;
 }
 
+.app-shell[data-theme="dark"],
+.error-page[data-theme="dark"] {
+    --color-base-100: #232323;
+    --color-base-200: #1b1b1b;
+    --color-base-300: #333333;
+    --color-base-content: #ffffff;
+    --color-neutral: #333333;
+    --color-neutral-content: #ffffff;
+    --root-bg: #1b1b1b;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -281,6 +292,11 @@ section {
     transition: 0.3s ease;
 }
 
+.social-icons .social-icon {
+    width: 2rem;
+    height: 2rem;
+}
+
 .social-icons a:hover {
     color: #ffffff;
     background-color: rgba(255, 255, 255, 0.15);
@@ -515,40 +531,36 @@ section {
     align-items: center;
 
     text-align: center;
+
+    opacity: 0;
+    transform: translateY(35px);
+
+    transition:
+        opacity 0.9s ease,
+        transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .cert-card img,
 .certifications-images img {
     width: 100%;
-    max-width: 360px;
-
-    height: 220px;
-
-    object-fit: contain;
+    max-width: 100%;
+    height: auto;
 
     border-radius: 1rem;
 
-    background: rgba(65, 65, 65, 0.649);
-
-    overflow: hidden;
     display: block;
 
     cursor: pointer;
 
-    --translateY: 35px;
-    opacity: 0;
-    transform: translateY(var(--translateY)) scale(1);
-
     transition:
-        transform 0.9s cubic-bezier(0.22, 1, 0.36, 1),
-        opacity 0.9s ease,
+        transform 0.25s ease,
         filter 0.25s ease,
         box-shadow 0.25s ease;
 }
 
 .certifications.animation-done .cert-image-button:hover img,
 .certifications.animation-done .cert-image-button:focus-visible img {
-    transform: translateY(0) scale(1.05);
+    transform: scale(1.05);
     filter: brightness(1.2);
     box-shadow: 0 0 24px rgba(255, 255, 255, 0.35);
 }
@@ -563,13 +575,6 @@ section {
     text-align: center;
     font-size: 1.6rem;
     font-weight: 600;
-
-    opacity: 0;
-    transform: translateY(20px);
-
-    transition:
-        opacity 0.8s ease,
-        transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .certifications.show .certifications-text {
@@ -577,44 +582,33 @@ section {
     transform: translateY(0);
 }
 
-.certifications.show .cert-card img,
-.certifications.show .certifications-images img {
-    opacity: 1;
-    --translateY: 0;
-}
-
-.certifications.show .cert-card figcaption {
+.certifications.show .cert-card {
     opacity: 1;
     transform: translateY(0);
 }
 
 /* Certificate domino animation */
-.certifications.show:not(.animation-done) .cert-card:nth-child(1) img { transition-delay: 0.2s; }
-.certifications.show:not(.animation-done) .cert-card:nth-child(2) img { transition-delay: 0.35s; }
-.certifications.show:not(.animation-done) .cert-card:nth-child(3) img { transition-delay: 0.5s; }
-.certifications.show:not(.animation-done) .cert-card:nth-child(4) img { transition-delay: 0.65s; }
-.certifications.show:not(.animation-done) .cert-card:nth-child(5) img { transition-delay: 0.8s; }
-.certifications.show:not(.animation-done) .cert-card:nth-child(6) img { transition-delay: 0.95s; }
-
-.certifications.show:not(.animation-done) .cert-card:nth-child(1) figcaption { transition-delay: 0.3s; }
-.certifications.show:not(.animation-done) .cert-card:nth-child(2) figcaption { transition-delay: 0.45s; }
-.certifications.show:not(.animation-done) .cert-card:nth-child(3) figcaption { transition-delay: 0.6s; }
-.certifications.show:not(.animation-done) .cert-card:nth-child(4) figcaption { transition-delay: 0.75s; }
-.certifications.show:not(.animation-done) .cert-card:nth-child(5) figcaption { transition-delay: 0.9s; }
-.certifications.show:not(.animation-done) .cert-card:nth-child(6) figcaption { transition-delay: 1.05s; }
+.certifications.show:not(.animation-done) .cert-card:nth-child(1) { transition-delay: 0.2s; }
+.certifications.show:not(.animation-done) .cert-card:nth-child(2) { transition-delay: 0.35s; }
+.certifications.show:not(.animation-done) .cert-card:nth-child(3) { transition-delay: 0.5s; }
+.certifications.show:not(.animation-done) .cert-card:nth-child(4) { transition-delay: 0.65s; }
+.certifications.show:not(.animation-done) .cert-card:nth-child(5) { transition-delay: 0.8s; }
+.certifications.show:not(.animation-done) .cert-card:nth-child(6) { transition-delay: 0.95s; }
 
 .certifications:not(.animation-done) .cert-image-button {
     pointer-events: none;
+}
+
+.certifications.animation-done .cert-card {
+    transition-delay: 0s;
 }
 
 .certifications.animation-done .cert-card img,
 .certifications.animation-done .certifications-images img {
     transition:
         transform 0.25s ease,
-        opacity 0.9s ease,
         filter 0.25s ease;
 
-    transition-delay: 0s;
     pointer-events: auto;
 }
 
@@ -697,7 +691,7 @@ section {
         box-shadow 0.18s ease;
 }
 
-.tech-card i,
+.tech-card svg,
 .tech-card img {
     width: 6rem;
     height: 6rem;
@@ -748,6 +742,11 @@ section {
     height: 6rem;
 
     font-size: 3rem;
+}
+
+.contact-links.social-icons .social-icon {
+    width: 3rem;
+    height: 3rem;
 }
 
 /* LIGHTBOX */
@@ -856,6 +855,7 @@ body.lightbox-active {
     display: inline-flex;
     justify-content: center;
     align-items: center;
+    gap: 0.8rem;
 
     margin: 2rem auto 0;
     padding: 1rem 2.4rem;
@@ -1056,7 +1056,7 @@ body.lightbox-active {
         border-radius: 1.8rem !important;
     }
 
-    .tech-card i,
+    .tech-card svg,
     .tech-card img {
         width: 6rem;
         height: 6rem;
@@ -1141,8 +1141,9 @@ body.lightbox-active {
         display: none;
     }
 
-    .top-nav a i {
-        font-size: 2.3rem;
+    .top-nav a svg {
+        width: 2.3rem;
+        height: 2.3rem;
     }
 
     .home-image img {
@@ -1176,7 +1177,7 @@ body.lightbox-active {
         border-radius: 1.5rem !important;
     }
 
-    .tech-card i,
+    .tech-card svg,
     .tech-card img {
         width: 4.3rem;
         height: 4.3rem;
@@ -1213,7 +1214,7 @@ body.lightbox-active {
         border-radius: 1.2rem !important;
     }
 
-    .tech-card i,
+    .tech-card svg,
     .tech-card img {
         width: 3.2rem;
         height: 3.2rem;
@@ -1257,8 +1258,9 @@ body.lightbox-active {
         display: none;
     }
 
-    .top-nav a i {
-        font-size: 2.4rem;
+    .top-nav a svg {
+        width: 2.4rem;
+        height: 2.4rem;
     }
 
     section {
@@ -1290,7 +1292,7 @@ body.lightbox-active {
         border-radius: 1rem !important;
     }
 
-    .tech-card i,
+    .tech-card svg,
     .tech-card img {
         width: 2.5rem;
         height: 2.5rem;
@@ -1316,6 +1318,11 @@ body.lightbox-active {
         margin-right: 1rem;
 
         font-size: 2.5rem;
+    }
+
+    .contact-links.social-icons .social-icon {
+        width: 2.5rem;
+        height: 2.5rem;
     }
 }
 

@@ -19,18 +19,20 @@
       </p>
       <a
         v-if="project?.verificationUrl"
-        class="certificate-button"
+        class="certificate-button btn btn-neutral"
         :href="project.verificationUrl"
         target="_blank"
         rel="noopener noreferrer"
       >
         Verify Certification
+        <ExternalLink aria-hidden="true" :size="16" />
       </a>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
+import { ExternalLink } from 'lucide-vue-next'
 import type { LightboxProject } from '~/composables/useImageLightbox'
 
 defineProps<{

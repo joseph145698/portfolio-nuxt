@@ -1,6 +1,6 @@
 <template>
-  <main class="error-page">
-    <section class="error-card">
+  <main class="error-page" data-theme="dark">
+    <section class="error-card card">
       <img
         class="error-icon"
         src="/images/tech/404.png"
@@ -13,7 +13,8 @@
       <h1>{{ title }}</h1>
       <p class="error-description">{{ description }}</p>
 
-      <button class="home-button" margin-top=2.8rem type="button" @click="clearError({ redirect: '/' })">
+      <button class="home-button btn btn-neutral" type="button" @click="clearError({ redirect: '/' })">
+        <House aria-hidden="true" :size="18" />
         Return to homepage
       </button>
     </section>
@@ -21,6 +22,8 @@
 </template>
 
 <script setup lang="ts">
+import { House } from 'lucide-vue-next'
+
 interface ErrorPageProps {
   error: {
     statusCode?: number
@@ -98,6 +101,10 @@ useSeoMeta({
 }
 
 .home-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
   margin-top: 3.8rem;
   padding: 1.2rem 2.2rem;
   border: 1px solid rgba(255, 255, 255, 0.5);

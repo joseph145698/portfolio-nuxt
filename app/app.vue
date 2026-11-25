@@ -1,5 +1,5 @@
 <template>
-  <div class="app-shell">
+  <div class="app-shell" data-theme="dark">
     <PageLoader />
     <BackgroundEffects />
     <NuxtPage />
@@ -9,14 +9,6 @@
 <script setup>
 useHead({
   link: [
-    {
-      rel: 'stylesheet',
-      href: 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css'
-    },
-    {
-      rel: 'stylesheet',
-      href: 'https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css'
-    },
     {
       rel: 'stylesheet',
       href: 'https://fonts.googleapis.com/css2?family=Montserrat&display=swap'
