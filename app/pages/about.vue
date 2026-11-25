@@ -37,21 +37,12 @@
         </div>
 
         <div class="about-images">
-          <figure
+          <AboutProjectCard
             v-for="project in projects"
             :key="project.src"
-            class="about-project-card bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-4 shadow-lg hover:shadow-2xl transition-all duration-300"
-          >
-            <button
-              class="about-project-image"
-              type="button"
-              :aria-label="`View ${project.title} image`"
-              @click="openLightbox(project)"
-            >
-              <img :src="project.src" :alt="project.alt">
-            </button>
-            <figcaption>{{ project.title }}</figcaption>
-          </figure>
+            :project="project"
+            @select="openLightbox"
+          />
         </div>
       </div>
     </section>
@@ -114,18 +105,3 @@ useSeoMeta({
   description: 'Learn more about Joseph Rey Paterno, his studies, interests, and college projects.'
 })
 </script>
-
-<style scoped>
-.about-project-image {
-  display: block;
-  width: 100%;
-  padding: 0;
-  background: transparent;
-  cursor: zoom-in;
-}
-
-.about-project-image:focus-visible {
-  outline: 2px solid #ffffff;
-  outline-offset: 4px;
-}
-</style>

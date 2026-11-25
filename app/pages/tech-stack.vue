@@ -17,24 +17,11 @@
         </div>
 
         <div class="tech-grid">
-          <article
+          <TechnologyCard
             v-for="technology in technologies"
             :key="technology.name"
-            class="tech-card rounded-2xl border border-white/10 bg-white/5 p-6 shadow-lg backdrop-blur-md transition-all duration-300 hover:shadow-2xl"
-          >
-            <img
-              v-if="technology.image"
-              :src="technology.image"
-              :alt="technology.alt"
-              aria-hidden="true"
-            >
-            <i
-              v-else
-              :class="technology.icon"
-              aria-hidden="true"
-            />
-            <span>{{ technology.name }}</span>
-          </article>
+            :technology="technology"
+          />
         </div>
       </div>
     </section>
@@ -44,7 +31,14 @@
 <script setup lang="ts">
 const pageVisible = usePageReveal()
 
-const technologies = [
+interface TechnologyCardItem {
+  name: string
+  icon?: string
+  image?: string
+  alt?: string
+}
+
+const technologies: TechnologyCardItem[] = [
   { name: 'HTML', icon: 'fa-brands fa-html5' },
   { name: 'CSS', icon: 'fa-brands fa-css3-alt' },
   { name: 'JavaScript', icon: 'fa-brands fa-js' },
